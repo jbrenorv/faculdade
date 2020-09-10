@@ -6,7 +6,6 @@
 #include <string.h>
 
 #define length_line 40
-#define MAX 50
 
 char *file_name = "agenda";
 

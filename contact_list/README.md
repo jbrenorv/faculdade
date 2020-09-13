@@ -3,16 +3,16 @@
 I created this simple example of a contact list, to define the main functions for handling C files.<br>
 This example is purely didactic.
 
-# screenshots
+//# screenshots
 
-## menu
+//## menu
 
-![Alt text](./images/menu.png)
+//![Alt text](./images/menu.png)
 
-## view
+//## view
 
-![Alt text](./images/view.png)
+//![Alt text](./images/view.png)
 
-## erase
+//## erase
 
-![Alt text](./images/erase.png)
+//![Alt text](./images/erase.png)

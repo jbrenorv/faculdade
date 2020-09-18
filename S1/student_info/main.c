@@ -153,7 +153,7 @@ void print_list(){
     int a;
 
     printf("|%14s%3s%15s%3s%9s%6s%12s%3s\n",
-        "Aluno", "|", "Matricula", "|", "fone", "|", "Nascimento", "|"
+        "Aluno", "|", "Matricula", "|", "Fone", "|", "Nascimento", "|"
     );
 
     for(a = 0; a < MAX; a++) {
@@ -232,7 +232,7 @@ int menu(){
 }
 
 void bug(){
-    printf("Ocorreu um bug no trato de arquivos!\n");
+    printf("Ocorreu um erro no trato de arquivos!\n");
     exit(1);
 }
 

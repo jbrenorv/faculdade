@@ -1,3 +1,3 @@
-# university_graduate
+# Faculdade
 
-for some activities motivated by my course.
+Para algumas atividades motivadas pelo curso de graduação em computação que estou fazendo.

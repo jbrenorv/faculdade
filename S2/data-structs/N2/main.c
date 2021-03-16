@@ -1,25 +1,36 @@
 #include "segment_tree.h"
 #include "bridges.h"
 
-void menu_seg_tree() {
-    int option;
+void menu();
+void menu_seg_tree();
+void menu_bridges();
 
+int main()
+{
+    menu();
+    return 0;
+}
+
+void menu_seg_tree()
+{
+    __uint8_t option;
     build();
 
-    while (1) {
-    
-        printf("\n----MENU SEG TREE----\n1 - update\n2 - query\n3 - exit\n>>> ");
-        scanf("%i", &option);
+    while (1)
+    {
+        printf("\n---------MENU---------\n\n1\t- Update\n2\t- Query\n3 (any)\t- Exit\n\n>>> ");
+        scanf("%hhi", &option);
 
-        if (option == 1)
+        if (option == T_UPDATE)
             update();
-        else if (option == 2)
+        else if (option == T_QUERY)
             query();
         else break;
     }
 }
 
-void menu_bridges() {
+void menu_bridges()
+{
     printf("\nCriando grafo...\n");
     Graph *G = malloc(sizeof(Graph));
     
@@ -53,26 +64,20 @@ void menu_bridges() {
     show(G);
 }
 
-void menu() {
+void menu()
+{
     
-    int option;
+    __uint8_t option;
 
-    while (1) {
-    
-        printf("\n----MENU----\n1 - Segment Tree\n2 - Bridges\n3 - exit\n>>> ");
-        scanf("%i", &option);
+    while (1)
+    {
+        printf("\n---------MENU---------\n\n1\t- Segment Tree\n2\t- Bridges\n3 (any)\t- Exit\n\n>>> ");
+        scanf("%hhi", &option);
 
-        if (option == 1)
-            menu_seg_tree();
-        else if (option == 2)
+        if (option == SEG_TREE)
+            menu_seg_tree();    
+        else if (option == BRIDGES)
             menu_bridges();
         else break;
     }
-}
-
-int main() {
-
-    menu();
-
-    return 0;
 }

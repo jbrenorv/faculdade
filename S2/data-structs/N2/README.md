@@ -1,3 +1,8 @@
 # Avaliação para a segunda nota da disciplina
 
-Implementação de uma arvore de segmentos e um algoritmo para encontrar pontes em um grafo.
+## Foi implementado
+- Arvore de segmentos
+- Divisão e conquista
+- Grafo
+- Lista ligada
+- Algoritmo para encontrar pontes

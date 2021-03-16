@@ -39,7 +39,8 @@ void insert(Item *begin, int w)
     begin->next = new;
 }
 
-void all_bridges(Graph *G) {
+void all_bridges(Graph *G)
+{
     int v;
 
     for (v = 0; v < G->V; v++)
@@ -52,14 +53,17 @@ void all_bridges(Graph *G) {
         }
 }
 
-void dfs(Graph *G, int v) {
+void dfs(Graph *G, int v)
+{
     Item *p;
     int w;
     G->pre[v] = G->cnt++;
     G->low[v] = G->pre[v];
 
-    for (p = G->adj[v]->next; p != NULL; p = p->next) {
-        if (G->pre[w = p->w] == -1) {
+    for (p = G->adj[v]->next; p != NULL; p = p->next)
+    {
+        if (G->pre[w = p->w] == -1)
+        {
             G->parent[w] = v;
             dfs(G, w);
 
@@ -84,7 +88,7 @@ void show(Graph *G)
 
     for (v = 0; v < G->V; v++)
     {
-        printf("%i ( parent: %i, pre: %i , low: %i ):\t",
+        printf("%i\t(parent: %i,\tpre: %i, \tlow: %i):\t",
             v, G->parent[v], G->pre[v], G->low[v]);
         
         imprime(G->adj[v]);
@@ -94,8 +98,7 @@ void show(Graph *G)
 void imprime(Item *ini)
 {
     Item *p;
-    for (p = ini->next; p != NULL; p = p->next) {
-        printf ("%d\t", p->w);
-    }
+    for (p = ini->next; p != NULL; p = p->next)
+        printf ("%d, ", p->w);
     printf ("\n");
 }

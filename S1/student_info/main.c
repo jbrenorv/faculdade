@@ -1,7 +1,7 @@
-#include "functions.c"
+#include "boletim.h"
 
-int main() {
-
+int main()
+{
     init();
     load();
     run_app();

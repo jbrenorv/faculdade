@@ -1,10 +1,11 @@
-# on linux
-## contact_list
+# Introdução a programação com a linguagem C :blue_heart:
 
-I created this simple example of a contact list, to define the main functions for handling C files.<br>
-This example is purely didactic.
+## Compile no Linux
+Usa cores no terminal de uma forma que só funciona em Windows, por exemplo. (Testado no Mint)
 
-## student_info
+## Lista de contatos
+Um simples gerenciador de contatos escrito em C, com persistência de dados via manipulação de arquivos<br>
+Adicione, edite ou remova contatos. Exemplo puramente didático<br>
 
-still about files.<br>
-Add, remove and save academic and personal student data.
+## Informações academicas
+Ainda usando arquivos, gerencia dados pessoais e academicos e computa notas de um ou mais alunos.

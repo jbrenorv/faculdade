@@ -1,4 +1,4 @@
-# Avaliação para a segunda nota da disciplina
+# Avaliação para a segunda nota da disciplina Estrutura de Dados
 
 ## Foi implementado
 - Arvore de segmentos

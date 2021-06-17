@@ -36,8 +36,6 @@ exit:
 ; -------------------------------------
 ; Função.: Printa espaços
 ; -------------------------------------
-; Entrada: ESI a quantidade de espaços
-; -------------------------------------
 printSpaces:
     mov     esi, edi
     .whileLoop:
@@ -49,7 +47,7 @@ printSpaces:
         loop .whileLoop
 
 ; ------------------------------------------------------
-; Função.........: Printa asteriscos
+; Função.........: Imprime asteriscos
 ; ------------------------------------------------------
 ; Entrada........: EDI o numero da linha atual.
 ; Num da primeira: height - 1

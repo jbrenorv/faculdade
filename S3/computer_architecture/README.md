@@ -1,1 +1,1 @@
-# Pequenos desafios em Assembly
+# Pequenos desafios em Assembly com NASM

@@ -8,8 +8,8 @@
 %include 'consts.inc'
 
 section .data
-    asterisc    db '*', LF, NULL
-    space       db ' ', LF, NULL
+    asterisc    db  '*', LF, NULL
+    space       db  ' ', LF, NULL
     height      equ 5
 
 section .text
@@ -75,7 +75,7 @@ retorne:
     ret
 
 ; -------------------------------------
-; Função.: Printa um asterisc
+; Função.: Imprime um asterisc
 ; -------------------------------------
 printAsterisc:
     mov edx, 1              ; o tamanho
@@ -86,7 +86,7 @@ printAsterisc:
     ret
 
 ; -------------------------------------
-; Função.: Printa um asterisc com '\n'
+; Função.: Imprime um asterisc com '\n'
 ; -------------------------------------
 printLastAsterisc:
     mov edx, 2              ; o tamanho
@@ -97,7 +97,7 @@ printLastAsterisc:
     ret
 
 ; -------------------------------------
-; Função.: Printa um space
+; Função.: Imprime um space
 ; -------------------------------------
 printSpace:
     mov edx, 1              ; o tamanho

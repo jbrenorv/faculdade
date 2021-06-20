@@ -8,10 +8,10 @@ extern get_int
 
 section .bss
 	array	resd 100
-	n		resd 1
+	n	resd 1
 	key 	resd 1
-	i 		resd 1
-	j		resd 1
+	i 	resd 1
+	j	resd 1
 
 
 section .text
@@ -19,8 +19,8 @@ main:
 
 	call 	get_int
 
-	cmp		eax, 	100
-	jge		exit			; só foi reservado 100 dwords
+	cmp	eax, 	100
+	jge	exit			; só foi reservado 100 dwords
 
 	mov 	[n],	eax
 	call	gets_array

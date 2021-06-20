@@ -8,3 +8,14 @@ $ sudo apt install nasm
 $ make
 $ ./<nome-do-executavel>
 ```
+
+### Insertion Sort
+Para este programa compilar no seu Linux, garanta que a seguite lib esteja instalada:
+```
+$ sudo apt-get install gcc-multilib
+```
+
+Após compilar e executar, você pode excluir os arquivos gerados. Isso inclui o executável:
+```
+$ make clean
+```

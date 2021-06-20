@@ -44,13 +44,13 @@ gets_array:
 	
 	.whileLoop:
 		cmp 	edi, 	dword[n]
-		jge		retorne
+		jge	retorne
 
 		call 	get_int
-		mov		[array + 4 * edi],	eax
+		mov	[array + 4 * edi],	eax
 
-		add		edi, 	1
-		jmp		.whileLoop
+		add	edi, 	1
+		jmp	.whileLoop
 
 
 ; ---------------------------------------------
@@ -60,48 +60,48 @@ insertion_sort:
     mov     dword[i], 1
 
     .while:
-		mov 	ebx,		dword[i]
-		cmp 	ebx,		dword[n]
-		jge		retorne
+	mov 	ebx,		dword[i]
+	cmp 	ebx,		dword[n]
+	jge	retorne
 
         ;key = arr[i];
-		mov 	eax,		[array + 4 * ebx]
-		mov		[key],		eax
+	mov 	eax,		[array + 4 * ebx]
+	mov	[key],		eax
 
-		;j = i - 1;
-		sub 	ebx,		1
-		mov 	[j],		ebx
+	;j = i - 1;
+	sub 	ebx,		1
+	mov 	[j],		ebx
 
-		call 	troca
+	call 	troca
 
-		;arr[j + 1] = key;
-		mov 	ebx,				dword[j]
-		add		ebx,				1
-		mov		eax,				dword[key]
-		mov		[array + 4 * ebx],	eax
+	;arr[j + 1] = key;
+	mov 	ebx,			dword[j]
+	add	ebx,			1
+	mov	eax,			dword[key]
+	mov	[array + 4 * ebx],	eax
 
-		add 	dword[i],	1
+	add 	dword[i],	1
         jmp   	.while
     ret
 
 
 troca:
 	;j >= 0
-    cmp     dword[j],   0
-    jl      retorne
+    	cmp     dword[j],   0
+    	jl      retorne
     
 	;arr[j] > key
 	mov 	ebx,		dword[j]
-	mov		eax,		[array + 4 * ebx]
+	mov	eax,		[array + 4 * ebx]
 	cmp 	eax,		dword[key]
-	jle		retorne
+	jle	retorne
 	
 	;arr[j + 1] = arr[j];
-	mov		[array + 4 + 4 * ebx], eax
+	mov	[array + 4 + 4 * ebx], eax
 
 	;j = j - 1;
-	sub		ebx,		1
-	mov		[j],		ebx
+	sub	ebx,		1
+	mov	[j],		ebx
 	jmp 	troca
 
 

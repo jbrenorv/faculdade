@@ -64,7 +64,7 @@ insertion_sort:
 		cmp 	ebx,		dword[n]
 		jge		retorne
 
-        ;key = arr[i];
+		;key = arr[i];
 		mov 	eax,		[array + 4 * ebx]
 		mov		[key],		eax
 
@@ -81,7 +81,7 @@ insertion_sort:
 		mov		[array + 4 * ebx],	eax
 
 		add 	dword[i],	1
-        jmp   	.while
+		jmp   	.while
     ret
 
 

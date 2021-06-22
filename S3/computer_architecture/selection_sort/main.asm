@@ -79,7 +79,7 @@ gets_array:
 
 
 ; ---------------------------------------------
-; Algorito de ordenação Insertion Sort
+; Algorito de ordenação Selection Sort
 ; ---------------------------------------------
 selection_sort:
     mov     dword[i], 0

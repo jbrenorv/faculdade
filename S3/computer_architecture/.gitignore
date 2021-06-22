@@ -3,6 +3,7 @@
 piramide/piramide
 quadrado/quadrado
 insertion_sort/main
+selection_sort/main
 
 *.o
 

@@ -6,12 +6,34 @@ extern print_ln
 extern get_int
 
 
+;void insertionSort(int arr[], int n)
+;{
+;    int i, key, j;
+;    for (i = 1; i < n; i++)
+;    {
+;        key = arr[i];
+;        j = i - 1;
+
+;        while (j >= 0 && arr[j] > key)
+;        {
+;            arr[j + 1] = arr[j];
+;            j = j - 1;
+;        }
+;        arr[j + 1] = key;
+;    }
+;}
+
+; b 	- byte
+; w 	- word 			-> 2 bytes
+; dw 	- double word 	-> 4 bytes
+; qw	- quad word		-> 8 bytes
+
 section .bss
 	array	resd 100
-	n	resd 1
+	n		resd 1
 	key 	resd 1
-	i 	resd 1
-	j	resd 1
+	i 		resd 1
+	j		resd 1
 
 
 section .text
@@ -19,15 +41,15 @@ main:
 
 	call 	get_int
 
-	cmp	eax, 	100
-	jge	exit			; só foi reservado 100 dwords
+	cmp		eax, 	100
+	jge		exit			; só foi reservado 100 dwords
 
 	mov 	[n],	eax
 	call	gets_array
 
-	call insertion_sort
-	call print_array
-	call print_ln
+	call 	insertion_sort
+	call 	print_array
+	call 	print_ln
 
 
 exit:
@@ -44,13 +66,13 @@ gets_array:
 	
 	.whileLoop:
 		cmp 	edi, 	dword[n]
-		jge	retorne
+		jge		retorne
 
 		call 	get_int
-		mov	[array + 4 * edi],	eax
+		mov		[array + 4 * edi],	eax
 
-		add	edi, 	1
-		jmp	.whileLoop
+		add		edi, 	1
+		jmp		.whileLoop
 
 
 ; ---------------------------------------------
@@ -62,11 +84,11 @@ insertion_sort:
     .while:
 		mov 	ebx,		dword[i]
 		cmp 	ebx,		dword[n]
-		jge	retorne
+		jge		retorne
 
 		;key = arr[i];
 		mov 	eax,		[array + 4 * ebx]
-		mov	[key],		eax
+		mov		[key],		eax
 
 		;j = i - 1;
 		sub 	ebx,		1
@@ -75,10 +97,10 @@ insertion_sort:
 		call 	troca
 
 		;arr[j + 1] = key;
-		mov 	ebx,			dword[j]
-		add	ebx,			1
-		mov	eax,			dword[key]
-		mov	[array + 4 * ebx],	eax
+		mov 	ebx,				dword[j]
+		add		ebx,				1
+		mov		eax,				dword[key]
+		mov		[array + 4 * ebx],	eax
 
 		add 	dword[i],	1
         jmp   	.while
@@ -87,21 +109,21 @@ insertion_sort:
 
 troca:
 	;j >= 0
-    	cmp     dword[j],   0
-    	jl      retorne
+	cmp     dword[j],   0
+	jl      retorne
     
 	;arr[j] > key
 	mov 	ebx,		dword[j]
-	mov	eax,		[array + 4 * ebx]
+	mov		eax,		[array + 4 * ebx]
 	cmp 	eax,		dword[key]
-	jle	retorne
+	jle		retorne
 	
 	;arr[j + 1] = arr[j];
-	mov	[array + 4 + 4 * ebx], eax
+	mov		[array + 4 + 4 * ebx], eax
 
 	;j = j - 1;
-	sub	ebx,		1
-	mov	[j],		ebx
+	sub		ebx,		1
+	mov		[j],		ebx
 	jmp 	troca
 
 

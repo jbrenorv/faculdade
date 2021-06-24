@@ -32,7 +32,7 @@ extern get_int
 
 
 section .bss
-	array	    resd 100
+	array	    resd 100				; 100 espaços p/ 4 bytes
 	n		    resd 1
 	min_idx     resd 1
 	i 		    resd 1
@@ -71,7 +71,7 @@ gets_array:
 		cmp 	edi, 	dword[n]
 		jge		retorne
 
-		call 	get_int
+		call 	get_int							; eax = get_int
 		mov		[array + 4 * edi],	eax
 
 		add		edi, 	1
@@ -82,14 +82,16 @@ gets_array:
 ; Algorito de ordenação Selection Sort
 ; ---------------------------------------------
 selection_sort:
-    mov     dword[i], 0
+    ;i = 0;
+	mov     dword[i], 0
 
     .while:
+		;i < n-1;
 		mov 	ebx,		dword[i]
         mov     eax,        dword[n]
         sub     eax,        1
 		cmp 	ebx,		eax
-		jge		retorne
+		jge		retorne									; se i >= n, retorne
 
         ;min_idx = i;
 		mov		[min_idx],	ebx

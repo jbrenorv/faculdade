@@ -10,7 +10,7 @@ $ ./<nome-do-executavel>
 ```
 
 ### Insertion Sort
-Para este programa compilar no seu Linux, garanta que a seguite lib esteja instalada:
+Para este programa compilar no seu Linux, garanta que a seguinte lib esteja instalada:
 ```
 $ sudo apt-get install gcc-multilib
 ```

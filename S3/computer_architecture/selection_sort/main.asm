@@ -32,11 +32,11 @@ extern get_int
 
 
 section .bss
-	array	    	resd 100			; 100 espaços p/ 4 bytes
-	n		resd 1
+	array		resd 100			; 100 espaços p/ 4 bytes
+	n			resd 1
 	min_idx 	resd 1
-	i 		resd 1
-	j		resd 1
+	i 			resd 1
+	j			resd 1
 
 
 section .text
@@ -45,7 +45,7 @@ main:
 	call 	get_int
 
 	cmp	eax, 	100
-	jge	exit					; só foi reservado 100 dwords
+	jge	exit						; só foi reservado 100 dwords
 
 	mov 	[n],	eax
 	call	gets_array
@@ -69,36 +69,36 @@ gets_array:
 	
 	.whileLoop:
 		cmp 	edi, 	dword[n]
-		jge	retorne
+		jge		retorne
 
 		call 	get_int				; eax = get_int
-		mov	[array + 4 * edi],	eax
+		mov		[array + 4 * edi],	eax
 
-		add	edi, 	1
-		jmp	.whileLoop
+		add		edi, 	1
+		jmp		.whileLoop
 
 
 ; ---------------------------------------------
 ; Algorito de ordenação Selection Sort
 ; ---------------------------------------------
 selection_sort:
-    ;i = 0;
-	mov     dword[i], 0
+	;i = 0;
+    mov     dword[i], 0
 
     .while:
 		;i < n-1;
-	mov 	ebx,	dword[i]
+		mov 	ebx,	dword[i]
         mov     eax,   	dword[n]
         sub     eax,  	1
-	cmp 	ebx,	eax
-	jge	retorne					; se i >= n, retorne
+		cmp 	ebx,	eax
+		jge	retorne					; se i >= n, retorne
 
         ;min_idx = i;
-	mov	[min_idx],	ebx
+		mov	[min_idx],	ebx
         
-	;j = i + 1;
-	add 	ebx,		1
-	mov 	[j],		ebx
+		;j = i + 1;
+		add 	ebx,		1
+		mov 	[j],		ebx
         
         call    findMinIndex
         
@@ -110,7 +110,7 @@ selection_sort:
         mov     [array + 4 * edi],  ebx                 ; array[min_idx] = array[i]
         mov     [array + 4 * esi],  eax                 ; array[i] = array[min_idx]
 
-	add 	dword[i],	1
+		add 	dword[i],	1
         jmp   	.while
 
 

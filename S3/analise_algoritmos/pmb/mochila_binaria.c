@@ -1,8 +1,9 @@
 #include <stdio.h>		// printf, scanf
 #include <string.h>		// memset
 #include <stdlib.h>		// malloc
-#define MAX 101
-#define INF 1e+6		// entenda infinito como inatingível
+#include <time.h>		// clock, CLOCKS_PER_SEC
+#define MAX 4001		// <!> deve ser maior que todos os pesos e valores <!>
+#define INF 1e+8		// entenda infinito como inatingível
 
 typedef struct b_tree
 {
@@ -54,16 +55,22 @@ void print_mochila(int i, b_tree *no)
 	
 	if (no->d)
 	{
-		printf("item: %i, valor: %i, peso: %i\n", i, itens[i].v, itens[i].p);
+		printf("PEGO: item: %i, valor: %i, peso: %i\t <<---\n", i,
+																itens[i].v,
+																itens[i].p);
 		print_mochila(i+1, no->pega);
 		return;
 	}
 	
+	printf("PASS: item: %i, valor: %i, peso: %i\n", i,
+													itens[i].v,
+													itens[i].p);
 	print_mochila(i+1, no->pass);
 }
 
 int main()
 {
+	long tempo;
 	memset(pd, -1, MAX*MAX*sizeof(int));
 	
 	scanf("%i %i", &n, &c_max);
@@ -72,10 +79,13 @@ int main()
 		scanf("%i %i", &itens[i].p, &itens[i].v);
 	
 	b_tree *bt = (b_tree *) malloc(sizeof(b_tree));
+	
+	tempo = clock();
 	int ans = mochila(0, c_max, bt);
 	
 	print_mochila(0, bt);
-	printf("total: %i\n", ans);
+	printf("total: %i\ntempo: %lf ms\n", ans, 
+		(double) (clock() - tempo) / CLOCKS_PER_SEC * 1000);
 	
 	return 0;
 }

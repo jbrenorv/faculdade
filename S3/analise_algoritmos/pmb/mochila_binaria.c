@@ -55,16 +55,12 @@ void print_mochila(int i, b_tree *no)
 	
 	if (no->d)
 	{
-		printf("PEGO: item: %i, valor: %i, peso: %i\t <<---\n", i,
-																itens[i].v,
-																itens[i].p);
+		printf("PEGO: item: %i, valor: %i, peso: %i\t <<---\n", i, itens[i].v, itens[i].p);
 		print_mochila(i+1, no->pega);
 		return;
 	}
 	
-	printf("PASS: item: %i, valor: %i, peso: %i\n", i,
-													itens[i].v,
-													itens[i].p);
+	printf("PASS: item: %i, valor: %i, peso: %i\n", i, itens[i].v, itens[i].p);
 	print_mochila(i+1, no->pass);
 }
 

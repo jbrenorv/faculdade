@@ -1,7 +1,7 @@
 ## Questão 1
 No algoritmo a seguir, |v| denota o valor absoluto de v.<br><br>
 
-*Algoritmo:* Busca aproximada<br>
+<b>Algoritmo:<b> Busca aproximada<br>
 *Entrada:* Uma lista L de N inteiros em ordem não decrescente indexados a partir do 0 e um inteiro X<br>
 *Saída:* Um elemento Y de L mais próximo de X<br>
 
@@ -16,9 +16,9 @@ enquanto inicio <= fim faca:
 		devolva L[meio]
 	
 	se L[meio] > x:
-		fim := meio-1
+		fim = meio-1
 	se nao:
-		inicio := meio+1
+		inicio = meio+1
 ```
 
 No pior caso, o elemento procurado está em um dos extremos da lista e a complexidade temporal será<br>

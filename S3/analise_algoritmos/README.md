@@ -1,4 +1,31 @@
-# TESTE
+## Questão 1
+No algoritmo a seguir, |v| denota o valor absoluto de v.
+
+*Algoritmo:* Busca aproximada
+*Entrada:* Uma lista L de N inteiros em ordem não decrescente indexados a partir do 0 e um inteiro X
+*Saída:* Um elemento Y de L mais próximo de X
+
+```
+inicio = 0
+fim = N-1
+
+enquanto inicio <= fim:
+	meio = (inicio + fim) / 2		// divisao inteira
+	
+	se (meio = 0 ou |L[meio] - x| <= |L[meio-1] - x|) e (meio = N-1 ou |L[meio] - x| <= |L[meio+1] - x|):
+		devolva L[meio]
+	
+	se L[meio] > x:
+		fim := meio-1
+	se nao:
+		inicio := meio+1
+```
+
+No pior caso, o elemento procurado está em um dos extremos da lista e a complexidade temporal será de Θ(logn). No melhor caso, o elemento procurado está precisamente no meio da lista e ele é encontrado em O(1). O espaço requerido é O(1), pois é necessário apenas 4 variáveis escalares, incluindo N.
+
+## Questão 2
+## Questão 3
+## Questão 4
 
 
 Enumeração | x1 | x2 | x3 | x4 | x5 | x6 | x7 | x8 | x9 | x10 | x11 | x12 | x13 | x14 | x15 | x16 | x17 | x18 | x19 | x20 | Valor | Peso
@@ -32,3 +59,4 @@ Enumeração | x1 | x2 | x3 | x4 | x5 | x6 | x7 | x8 | x9 | x10 | x11 | x12 | x1
 27         | 0  | 1  | 0  | 1  | 1  | 1  | 0  | 0  | 0  | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 934   | 908
 28         | 0  | 0  | 1  | 1  | 1  | 1  | 0  | 0  | 0  | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 1021  | 992
 
+## Questão 5

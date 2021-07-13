@@ -1,15 +1,15 @@
 ## Questão 1
-No algoritmo a seguir, |v| denota o valor absoluto de v.
+No algoritmo a seguir, |v| denota o valor absoluto de v.<br><br>
 
-*Algoritmo:* Busca aproximada
-*Entrada:* Uma lista L de N inteiros em ordem não decrescente indexados a partir do 0 e um inteiro X
-*Saída:* Um elemento Y de L mais próximo de X
+*Algoritmo:* Busca aproximada<br>
+*Entrada:* Uma lista L de N inteiros em ordem não decrescente indexados a partir do 0 e um inteiro X<br>
+*Saída:* Um elemento Y de L mais próximo de X<br>
 
 ```
 inicio = 0
 fim = N-1
 
-enquanto inicio <= fim:
+enquanto inicio <= fim faca:
 	meio = (inicio + fim) / 2		// divisao inteira
 	
 	se (meio = 0 ou |L[meio] - x| <= |L[meio-1] - x|) e (meio = N-1 ou |L[meio] - x| <= |L[meio+1] - x|):
@@ -21,7 +21,9 @@ enquanto inicio <= fim:
 		inicio := meio+1
 ```
 
-No pior caso, o elemento procurado está em um dos extremos da lista e a complexidade temporal será de Θ(logn). No melhor caso, o elemento procurado está precisamente no meio da lista e ele é encontrado em O(1). O espaço requerido é O(1), pois é necessário apenas 4 variáveis escalares, incluindo N.
+No pior caso, o elemento procurado está em um dos extremos da lista e a complexidade temporal será<br>
+de Θ(logn). No melhor caso, o elemento procurado está precisamente no meio da lista e ele é encontrado<br>
+em O(1). O espaço requerido é O(1), pois é necessário apenas 4 variáveis escalares, incluindo N.<br>
 
 ## Questão 2
 ## Questão 3

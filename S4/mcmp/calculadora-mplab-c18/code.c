@@ -1,80 +1,82 @@
 /********************************************************************/
-// Projeto criado no MPL IDE utilizando o compilador C18 para uma	//
-// calculadora que executa as quatro operações aritméticas básicas	//
+// Projeto criado no MPL IDE utilizando o compilador C18 para uma		//
+// calculadora que executa as quatro operacoes aritmeticas basicas	//
 /********************************************************************/
 
 #include <p18f4520.h>
 
-#define INVALIDO	255
+#define INVALIDO 255
 
-#define barramento 	LATC
-#define d1 			LATDbits.LATD0
-#define d2 			LATDbits.LATD1
-#define d3 			LATDbits.LATD2
-#define d4 			LATDbits.LATD3
-#define d5 			LATDbits.LATD4
-#define d6 			LATDbits.LATD5
+#define barramento LATC
+#define d1 LATDbits.LATD0
+#define d2 LATDbits.LATD1
+#define d3 LATDbits.LATD2
+#define d4 LATDbits.LATD3
+#define d5 LATDbits.LATD4
+#define d6 LATDbits.LATD5
 
-/************************************************************/
-#define c1 			PORTBbits.RB3	// KEYPAD_SMALLCALC     //
-#define c2 			PORTBbits.RB2	//						//
-#define c3 			PORTBbits.RB1	// l1 7		8	9	/	//
-#define c4 			PORTBbits.RB0	// l2 4		5  	6	* 	//
-#define l4 			LATBbits.LATB4	// l3 1		2 	3	-	//
-#define l3 			LATBbits.LATB5	// l4 ON/C 	0	=	+	//
-#define l2 			LATBbits.LATB6	// 	  c1 	c2 	c3 	c4	//
-#define l1 			LATBbits.LATB7	//						//
-/************************************************************/
+/**************************************************/
+#define c1 PORTBbits.RB3	// KEYPAD_SMALLCALC     //
+#define c2 PORTBbits.RB2	//											//
+#define c3 PORTBbits.RB1	// l1 7			8		9		/		//
+#define c4 PORTBbits.RB0	// l2 4			5  	6		* 	//
+#define l4 LATBbits.LATB4 // l3 1			2 	3		-		//
+#define l3 LATBbits.LATB5 // l4 ON/C 	0		=		+		//
+#define l2 LATBbits.LATB6 // 	  c1 		c2 	c3 	c4	//
+#define l1 LATBbits.LATB7 //											//
+/**************************************************/
 
-/************************************************************/
-unsigned const char ADD = "+";								//
-unsigned const char SUB = "-";								//
-unsigned const char MUL = "*";								//
-unsigned const char DIV = "/";								//
-/************************************************************/
+/*******************************/
+unsigned const char ADD = "+"; //
+unsigned const char SUB = "-"; //
+unsigned const char MUL = "*"; //
+unsigned const char DIV = "/"; //
+/*******************************/
 
-/************************************************************/
-unsigned const char IGL = "=";								//
-unsigned const char CLS = "c";								//
-/************************************************************/
+/*******************************/
+unsigned const char IGL = "="; //
+unsigned const char CLS = "c"; //
+/*******************************/
 
 long a;
 long b;
 unsigned char operando;
-unsigned char digits[7] = {10,10,10,10,10,10};
+unsigned char digits[7] = {10, 10, 10, 10, 10, 10};
 const long p_10[] = {1, 10, 100};
 
-unsigned const char converte_7seg [] = {
-	//-gfedcba
-	0b00111111,
-	0b00000110,
-	0b01011011,
-	0b01001111,
-	0b01100110,
-	0b01101101,
-	0b01111101,
-	0b00000111,
-	0b01111111,
-	0b01101111,
-	0b00000000, 			// apagado
-	0b01000000,				// menos unário
+unsigned const char converte_7seg[] = {
+		//-gfedcba
+		0b00111111,
+		0b00000110,
+		0b01011011,
+		0b01001111,
+		0b01100110,
+		0b01101101,
+		0b01111101,
+		0b00000111,
+		0b01111111,
+		0b01101111,
+		0b00000000, // apagado
+		0b01000000, // menos unï¿½rio
 };
 
 /************************************************/
-// Delay de 5ms									//
-// Tempo para tornar nítido para o olho humano	//
-// o que esta sendo mostrado no display			//
+// Delay de 5ms																	//
+// Tempo para tornar nï¿½tido para o olho humano	//
+// o que esta sendo mostrado no display					//
 /************************************************/
-void delay_varredura(void) 	// 5ms
+void delay_varredura(void) // 5ms
 {
 	unsigned int i;
-	for (i=0; i<700; i++) {}
+	for (i = 0; i < 700; i++)
+	{
+	}
 }
 
-/********************************************************/
+/******************************************************/
 // Varre o display (7SEG-MPx6-CC do Proteus ISIS 7)		//
-// para exibir todos os dígitos							//
-/********************************************************/
+// para exibir todos os dï¿½gitos												//
+/******************************************************/
 void varre_display(void)
 {
 	barramento = converte_7seg[digits[5]];
@@ -108,11 +110,11 @@ void varre_display(void)
 	d6 = 1;
 }
 
-/************************************************************/
+/**********************************************************/
 // Varre o teclado (KEYPAD_SMALLCALC do Proteus ISIS 7)		//
-// para identificar se uma tecla foi precionada				//
+// para identificar se uma tecla foi precionada						//
 // Se nenhuma tecla for precionada, retorna INVALIDO=255	//
-/************************************************************/
+/**********************************************************/
 unsigned char varre_teclado()
 {
 	l1 = 0;
@@ -121,22 +123,30 @@ unsigned char varre_teclado()
 	l4 = 1;
 	if (!c1)
 	{
-		while (!c1) {}
+		while (!c1)
+		{
+		}
 		return 7;
 	}
 	if (!c2)
 	{
-		while (!c2) {}
+		while (!c2)
+		{
+		}
 		return 8;
 	}
 	if (!c3)
 	{
-		while (!c3) {}
+		while (!c3)
+		{
+		}
 		return 9;
 	}
 	if (!c4)
 	{
-		while (!c4) {}
+		while (!c4)
+		{
+		}
 		return DIV;
 	}
 
@@ -146,22 +156,30 @@ unsigned char varre_teclado()
 	l4 = 1;
 	if (!c1)
 	{
-		while (!c1) {}
+		while (!c1)
+		{
+		}
 		return 4;
 	}
 	if (!c2)
 	{
-		while (!c2) {}
+		while (!c2)
+		{
+		}
 		return 5;
 	}
 	if (!c3)
 	{
-		while (!c3) {}
+		while (!c3)
+		{
+		}
 		return 6;
 	}
 	if (!c4)
 	{
-		while (!c4) {}
+		while (!c4)
+		{
+		}
 		return MUL;
 	}
 
@@ -171,22 +189,30 @@ unsigned char varre_teclado()
 	l4 = 1;
 	if (!c1)
 	{
-		while (!c1) {}
+		while (!c1)
+		{
+		}
 		return 1;
 	}
 	if (!c2)
 	{
-		while (!c2) {}
+		while (!c2)
+		{
+		}
 		return 2;
 	}
 	if (!c3)
 	{
-		while (!c3) {}
+		while (!c3)
+		{
+		}
 		return 3;
 	}
 	if (!c4)
 	{
-		while (!c4) {}
+		while (!c4)
+		{
+		}
 		return SUB;
 	}
 
@@ -196,39 +222,47 @@ unsigned char varre_teclado()
 	l4 = 0;
 	if (!c1)
 	{
-		while (!c1) {}
+		while (!c1)
+		{
+		}
 		return CLS;
 	}
 	if (!c2)
 	{
-		while (!c2) {}
+		while (!c2)
+		{
+		}
 		return 0;
 	}
 	if (!c3)
 	{
-		while (!c3) {}
+		while (!c3)
+		{
+		}
 		return IGL;
 	}
 	if (!c4)
 	{
-		while (!c4) {}
+		while (!c4)
+		{
+		}
 		return ADD;
 	}
 
 	return INVALIDO;
 }
 
-/************************************************/
+/**********************************************/
 // Retorna verdadeiro se uc for um operando		//
-// Os operandos são: + - * /					//
-/************************************************/
+// Os operandos sï¿½o: + - * /									//
+/**********************************************/
 unsigned char eh_operando(unsigned char uc)
 {
-	return (uc==ADD || uc==SUB || uc==MUL || uc==DIV);
+	return (uc == ADD || uc == SUB || uc == MUL || uc == DIV);
 }
 
 /****************************************/
-// Apaga todos os dígitos do display	//
+// Apaga todos os dï¿½gitos do display		//
 /****************************************/
 void limpa_display(void)
 {
@@ -240,47 +274,47 @@ void limpa_display(void)
 	digits[5] = 10;
 }
 
-/************************************************/
+/**********************************************/
 // Desloca os valores do array de digitos e		//
-// atribui d à posição 0						//
-/************************************************/
+// atribui d ï¿½ posiï¿½ï¿½o 0											//
+/**********************************************/
 void insere_digito(unsigned char d)
 {
 	unsigned char i;
-	for (i=5; i>0; i--)
+	for (i = 5; i > 0; i--)
 	{
-		if (digits[i-1]!=10)
+		if (digits[i - 1] != 10)
 		{
-			digits[i] = digits[i-1];
+			digits[i] = digits[i - 1];
 		}
 	}
 	digits[0] = d;
 }
 
-/************************************************/
-// Espera o primeiro número e coloca em a		//
-// Esta função retorna quando há pelo menos		//
-// um dígito e o operando é fornecido			//
-/************************************************/
+/**********************************************/
+// Espera o primeiro nï¿½mero e coloca em a			//
+// Esta funï¿½ï¿½o retorna quando hï¿½ pelo menos		//
+// um dï¿½gito e o operando ï¿½ fornecido					//
+/**********************************************/
 void espera_primeiro_numero(void)
 {
 	unsigned char tecla;
 	unsigned char i = 0;
 
-	while (i<3)
+	while (i < 3)
 	{
 		varre_display();
 		tecla = varre_teclado();
-		if (tecla!=INVALIDO && tecla!=IGL)
+		if (tecla != INVALIDO && tecla != IGL)
 		{
-			if (tecla==CLS)
+			if (tecla == CLS)
 			{
 				i = 0;
 				limpa_display();
 			}
 			else if (eh_operando(tecla))
 			{
-				if (i==0)
+				if (i == 0)
 				{
 					continue;
 				}
@@ -297,7 +331,7 @@ void espera_primeiro_numero(void)
 			}
 		}
 	}
-	while (operando==INVALIDO)
+	while (operando == INVALIDO)
 	{
 		varre_display();
 		tecla = varre_teclado();
@@ -306,9 +340,9 @@ void espera_primeiro_numero(void)
 			operando = tecla;
 		}
 	}
-	for (i=0; i<3; i++)
+	for (i = 0; i < 3; i++)
 	{
-		if (digits[i]==10)
+		if (digits[i] == 10)
 		{
 			continue;
 		}
@@ -317,30 +351,30 @@ void espera_primeiro_numero(void)
 	limpa_display();
 }
 
-/************************************************/
-// Espera o segundo número e coloca em b		//
-// Esta função retorna quando há pelo menos		//
-// um dígito e a tecla = é precionada			//
-/************************************************/
+/**********************************************/
+// Espera o segundo nï¿½mero e coloca em b			//
+// Esta funï¿½ï¿½o retorna quando hï¿½ pelo menos		//
+// um dï¿½gito e a tecla = ï¿½ precionada					//
+/**********************************************/
 void espera_segundo__numero(void)
 {
 	unsigned char tecla;
 	unsigned char i = 0;
 
-	while (i<3)
+	while (i < 3)
 	{
 		varre_display();
 		tecla = varre_teclado();
-		if (tecla!=INVALIDO && !eh_operando(tecla))
+		if (tecla != INVALIDO && !eh_operando(tecla))
 		{
-			if (tecla==CLS)
+			if (tecla == CLS)
 			{
 				i = 0;
 				limpa_display();
 			}
-			else if (tecla==IGL)
+			else if (tecla == IGL)
 			{
-				if (i==0)
+				if (i == 0)
 				{
 					continue;
 				}
@@ -356,14 +390,14 @@ void espera_segundo__numero(void)
 			}
 		}
 	}
-	while (tecla!=IGL)
+	while (tecla != IGL)
 	{
 		varre_display();
 		tecla = varre_teclado();
 	}
-	for (i=0; i<3; i++)
+	for (i = 0; i < 3; i++)
 	{
-		if (digits[i]==10)
+		if (digits[i] == 10)
 		{
 			continue;
 		}
@@ -381,37 +415,37 @@ void calcula______resultado(void)
 	unsigned char i = 0;
 	unsigned char sinal = 0;
 
-	if (operando==ADD)
+	if (operando == ADD)
 	{
-		result = a+b;
+		result = a + b;
 	}
-	if (operando==SUB)
+	if (operando == SUB)
 	{
 		if (a < b)
 		{
 			sinal = 1;
-			result = b-a;
+			result = b - a;
 		}
 		else
 		{
-			result = a-b;
+			result = a - b;
 		}
 	}
-	if (operando==MUL)
+	if (operando == MUL)
 	{
-		result = a*b;
+		result = a * b;
 	}
-	if (operando==DIV && b!=0)
+	if (operando == DIV && b != 0)
 	{
-		result = a/b;
+		result = a / b;
 	}
 
 	if (result)
 	{
-		while (result!=0)
+		while (result != 0)
 		{
-			digits[i] = result%10;
-			result = result/10;
+			digits[i] = result % 10;
+			result = result / 10;
 			i++;
 		}
 	}
@@ -427,18 +461,18 @@ void calcula______resultado(void)
 }
 
 /****************************************/
-// Espera a tecla ON/C ser precionada	//
+// Espera a tecla ON/C ser precionada		//
 /****************************************/
 void espera_limpar__display(void)
 {
 	unsigned char tecla;
-	while (tecla!=CLS)
+	while (tecla != CLS)
 	{
 		varre_display();
 		tecla = varre_teclado();
 	}
 	limpa_display();
-}	
+}
 
 void main(void)
 {

@@ -1,6 +1,6 @@
 /********************************************************************/
-// Projeto criado no MPL IDE utilizando o compilador C18 para uma		//
-// calculadora que executa as quatro operacoes aritmeticas basicas	//
+/* Projeto criado no MPL IDE utilizando o compilador C18 para uma		*/
+/* calculadora que executa as quatro operacoes aritmeticas basicas	*/
 /********************************************************************/
 
 #include <p18f4520.h>
@@ -57,13 +57,13 @@ unsigned const char converte_7seg[] = {
 		0b01111111,
 		0b01101111,
 		0b00000000, // apagado
-		0b01000000, // menos un�rio
+		0b01000000, // menos unario
 };
 
 /************************************************/
-// Delay de 5ms																	//
-// Tempo para tornar n�tido para o olho humano	//
-// o que esta sendo mostrado no display					//
+/* Delay de 5ms																	*/
+/* Tempo para tornar nitido para o olho humano	*/
+/* o que esta sendo mostrado no display					*/
 /************************************************/
 void delay_varredura(void) // 5ms
 {
@@ -74,8 +74,8 @@ void delay_varredura(void) // 5ms
 }
 
 /******************************************************/
-// Varre o display (7SEG-MPx6-CC do Proteus ISIS 7)		//
-// para exibir todos os d�gitos												//
+/* Varre o display (7SEG-MPx6-CC do Proteus ISIS 7)		*/
+/* para exibir todos os digitos												*/
 /******************************************************/
 void varre_display(void)
 {
@@ -111,9 +111,9 @@ void varre_display(void)
 }
 
 /**********************************************************/
-// Varre o teclado (KEYPAD_SMALLCALC do Proteus ISIS 7)		//
-// para identificar se uma tecla foi precionada						//
-// Se nenhuma tecla for precionada, retorna INVALIDO=255	//
+/* Varre o teclado (KEYPAD_SMALLCALC do Proteus ISIS 7)		*/
+/* para identificar se uma tecla foi precionada						*/
+/* Se nenhuma tecla for precionada, retorna INVALIDO=255	*/
 /**********************************************************/
 unsigned char varre_teclado()
 {
@@ -253,8 +253,8 @@ unsigned char varre_teclado()
 }
 
 /**********************************************/
-// Retorna verdadeiro se uc for um operando		//
-// Os operandos s�o: + - * /									//
+/* Retorna verdadeiro se uc for um operando		*/
+/* Os operandos sao: + - * /									*/
 /**********************************************/
 unsigned char eh_operando(unsigned char uc)
 {
@@ -262,7 +262,7 @@ unsigned char eh_operando(unsigned char uc)
 }
 
 /****************************************/
-// Apaga todos os d�gitos do display		//
+/* Apaga todos os digitos do display		*/
 /****************************************/
 void limpa_display(void)
 {
@@ -275,8 +275,8 @@ void limpa_display(void)
 }
 
 /**********************************************/
-// Desloca os valores do array de digitos e		//
-// atribui d � posi��o 0											//
+/* Desloca os valores do array de digitos e		*/
+/* atribui d a posicao 0											*/
 /**********************************************/
 void insere_digito(unsigned char d)
 {
@@ -292,9 +292,9 @@ void insere_digito(unsigned char d)
 }
 
 /**********************************************/
-// Espera o primeiro n�mero e coloca em a			//
-// Esta fun��o retorna quando h� pelo menos		//
-// um d�gito e o operando � fornecido					//
+/* Espera o primeiro numero e coloca em a			*/
+/* Esta funcao retorna quando ha pelo menos		*/
+/* um digito e o operando eh fornecido				*/
 /**********************************************/
 void espera_primeiro_numero(void)
 {
@@ -352,9 +352,9 @@ void espera_primeiro_numero(void)
 }
 
 /**********************************************/
-// Espera o segundo n�mero e coloca em b			//
-// Esta fun��o retorna quando h� pelo menos		//
-// um d�gito e a tecla = � precionada					//
+/* Espera o segundo n�mero e coloca em b			*/
+/* Esta funcao retorna quando ha pelo menos		*/
+/* um digito e a tecla = eh precionada				*/
 /**********************************************/
 void espera_segundo__numero(void)
 {
@@ -407,7 +407,7 @@ void espera_segundo__numero(void)
 }
 
 /************************************************************/
-// Calcula o resultado de a(operando)b e mostra no display	//
+/* Calcula o resultado de a(operando)b e mostra no display	*/
 /************************************************************/
 void calcula______resultado(void)
 {
@@ -461,7 +461,7 @@ void calcula______resultado(void)
 }
 
 /****************************************/
-// Espera a tecla ON/C ser precionada		//
+/* Espera a tecla ON/C ser precionada		*/
 /****************************************/
 void espera_limpar__display(void)
 {

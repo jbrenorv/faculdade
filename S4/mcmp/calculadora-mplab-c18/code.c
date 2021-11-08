@@ -16,14 +16,14 @@
 #define d6 LATDbits.LATD5
 
 /**************************************************/
-#define c1 PORTBbits.RB3	// KEYPAD_SMALLCALC    	//
-#define c2 PORTBbits.RB2	//											//
-#define c3 PORTBbits.RB1	// l1 7			8		9		/		//
-#define c4 PORTBbits.RB0	// l2 4			5  	6		* 	//
-#define l4 LATBbits.LATB4 // l3 1			2 	3		-		//
-#define l3 LATBbits.LATB5 // l4 ON/C 	0		=		+		//
-#define l2 LATBbits.LATB6 // 	  c1 		c2 	c3 	c4	//
-#define l1 LATBbits.LATB7 //											//
+#define c1 PORTBbits.RB3	/* KEYPAD_SMALLCALC    	*/
+#define c2 PORTBbits.RB2	/*											*/
+#define c3 PORTBbits.RB1	/* l1 7			8		9		/		*/
+#define c4 PORTBbits.RB0	/* l2 4			5  	6		* 	*/
+#define l4 LATBbits.LATB4 /* l3 1			2 	3		-		*/
+#define l3 LATBbits.LATB5 /* l4 ON/C 	0		=		+		*/
+#define l2 LATBbits.LATB6 /* 	  c1 		c2 	c3 	c4	*/
+#define l1 LATBbits.LATB7 /*											*/
 /**************************************************/
 
 /*******************************/
@@ -352,7 +352,7 @@ void espera_primeiro_numero(void)
 }
 
 /**********************************************/
-/* Espera o segundo n�mero e coloca em b			*/
+/* Espera o segundo numero e coloca em b			*/
 /* Esta funcao retorna quando ha pelo menos		*/
 /* um digito e a tecla = eh precionada				*/
 /**********************************************/

@@ -16,7 +16,7 @@
 #define d6 LATDbits.LATD5
 
 /**************************************************/
-#define c1 PORTBbits.RB3	// KEYPAD_SMALLCALC     //
+#define c1 PORTBbits.RB3	// KEYPAD_SMALLCALC    	//
 #define c2 PORTBbits.RB2	//											//
 #define c3 PORTBbits.RB1	// l1 7			8		9		/		//
 #define c4 PORTBbits.RB0	// l2 4			5  	6		* 	//

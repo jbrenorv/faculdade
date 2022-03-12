@@ -12,9 +12,13 @@ int main(int argc, char **argv)
   LinearSystem *linear_system = make_linear_system_from_file(argv[1]);
 
   if (linear_system != NULL)
-    printf("Success\n");
-  else
-    printf("Failed\n");
+  {
+    show_extended_coefficient_matrix(linear_system);
+    gauss_method(linear_system);
+    show_extended_coefficient_matrix(linear_system);
+    solve_linear_system_ut(linear_system);
+    show_solution(linear_system);
+  }
 
   return 0;
 }

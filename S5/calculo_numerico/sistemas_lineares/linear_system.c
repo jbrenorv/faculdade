@@ -146,3 +146,19 @@ void show_solution(LinearSystem *ls)
   }
   printf("\n\n");
 }
+
+void show_type(LinearSystem *ls)
+{
+  if (ls->type == Determined)
+  {
+    printf("Compativel determinado\n");
+  }
+  else if (ls->type == Undetermined)
+  {
+    printf("Compativel indeterminado\n");
+  }
+  else
+  {
+    printf("Incompativel\n");
+  }
+}

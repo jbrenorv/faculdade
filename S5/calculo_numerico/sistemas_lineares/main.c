@@ -17,7 +17,11 @@ int main(int argc, char **argv)
     gauss_method(linear_system);
     show_extended_coefficient_matrix(linear_system);
     solve_linear_system_ut(linear_system);
-    show_solution(linear_system);
+    show_type(linear_system);
+    if (linear_system->type != Incompatible)
+    {
+      show_solution(linear_system);
+    }
   }
 
   return 0;

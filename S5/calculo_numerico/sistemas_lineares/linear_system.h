@@ -43,6 +43,8 @@ extern void solve_linear_system_ut(struct linear_system *);
 
 extern void show_extended_coefficient_matrix(struct linear_system *);
 
+extern void show_type(struct linear_system *);
+
 extern void show_solution(struct linear_system *);
 
 #endif

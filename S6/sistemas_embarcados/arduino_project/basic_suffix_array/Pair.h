@@ -9,7 +9,7 @@ template<typename T1, typename T2>
     void operator=(const pair<T1, T2>& p)
       { first = p.first; second = p.second; }
   };
-
+// ...
 template<typename T1, typename T2>
   bool operator==(const pair<T1, T2>& a, const pair<T1, T2>& b)
     { return (a.first == b.first && a.second == b.second); }

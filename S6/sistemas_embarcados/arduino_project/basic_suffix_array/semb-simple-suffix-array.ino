@@ -1,31 +1,33 @@
-#include "Pair.h"
 #include "BasicSuffixArray.h"
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
   
   while (Serial.available()) ;
 
-  String s = "ababba";
-  int n = s.length();
-  int p[n+1];
+  char s[N+1];
+  int p[N+1];
 
+  generateRandomString(s);
   buildSuffixArray(p, s);
-  printArray(p, n+1);
+  printArray(p);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop() { }
 
-}
-
-void printArray(int* array, int arrayLength) {
+void printArray(int* array) {
   Serial.print(array[0]);
-  for (int i = 1; i < arrayLength; ++i) {
+  for (int i = 1; i < N; ++i) {
     Serial.print(' ');
     Serial.print(array[i]);
   }
   Serial.println();
 }
 
+void generateRandomString(char *s) {
+  for (int i = 0; i < N; i++) {
+    s[i] = char(((random() % 26) + 97)); // gera uma letra em [a-z]
+    Serial.print(s[i]);
+  }
+  Serial.println();
+}

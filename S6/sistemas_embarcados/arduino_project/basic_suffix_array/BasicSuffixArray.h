@@ -1,8 +1,6 @@
 /*
  * Basic implementation of Suffix Array
- * Time Complexity: O(n*log^2(n))
- * Auxiliary Space: ~5n -> O(n)
- * Font: https://www.geeksforgeeks.org/iterative-quick-sort/
+ * Time Complexity: O(nlog(n))
  */
 
 #ifndef BasicSuffixArray_H

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="270.0" prefWidth="480.0" styleClass="setup-pane" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SetupDialogLayoutController">
+   <children>
+      <Button fx:id="btnIniciar" layoutX="192.0" layoutY="214.0" mnemonicParsing="false" onAction="#iniciar" prefHeight="42.0" prefWidth="97.0" styleClass="btn" text="Iniciar" textFill="#4c4c4c">
+         <font>
+            <Font name="Consolas Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="202.0" layoutY="14.0" text="Setup" textFill="WHITE">
+         <font>
+            <Font name="Consolas Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="110.0" text="Capacidade do trem" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfCapDeposito" alignment="CENTER" layoutX="281.0" layoutY="69.0" />
+      <TextField fx:id="tfCapTrem" alignment="CENTER" layoutX="281.0" layoutY="106.0" />
+      <Label fx:id="lblErro" layoutX="33.0" layoutY="177.0" textFill="WHITE">
+         <font>
+            <Font name="Consolas Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="73.0" text="Capacidade do depósito" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="147.0" text="Tempo de viagem do trem" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfTempoViagem" alignment="CENTER" layoutX="281.0" layoutY="143.0" />
+   </children>
+</AnchorPane>
